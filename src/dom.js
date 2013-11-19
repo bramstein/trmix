@@ -52,9 +52,6 @@ goog.scope(function () {
    * @param {string} value
    */
   dom.setAttribute = function (element, name, value) {
-    if (goog.DEBUG && (name === 'style' || name === 'class')) {
-      throw new Error('Please use the setStyle method to set the style, and the class methods to manipulate the class list.');
-    }
     element.setAttribute(name, value);
   };
 
