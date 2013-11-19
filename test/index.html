@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Type Rendering Mix</title>
+    <link href="../node_modules/mocha/mocha.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <script>CLOSURE_NO_DEPS = true;</script>
+    <script src="../vendor/google/base.js"></script>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/expect.js/expect.js"></script>
+    <script src="deps.js"></script>
+    <script>
+      goog.require('tr');
+      mocha.ui('bdd');
+    </script>
+    <script src="dom-test.js"></script>
+    <script src="version-test.js"></script>
+    <script src="useragent-test.js"></script>
+    <script>
+      window.onload = function () {
+        mocha.run();
+      };  
+    </script>
+  </body>
+</html>
