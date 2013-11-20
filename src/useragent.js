@@ -13,10 +13,10 @@ goog.scope(function () {
    * @param {tr.Version} platformVersion
    */
   tr.UserAgent = function(browser, browserVersion, platform, platformVersion) {
-    this.browser = browser;
-    this.browserVersion = browserVersion;
-    this.platform = platform;
-    this.platformVersion = platformVersion;
+    this.browser_ = browser;
+    this.browserVersion_ = browserVersion;
+    this.platform_ = platform;
+    this.platformVersion_ = platformVersion;
   }
 
   var UserAgent = tr.UserAgent,
@@ -28,28 +28,28 @@ goog.scope(function () {
    * @return {tr.Browser}
    */
   UserAgent.prototype.getBrowser = function () {
-    return this.browser;
+    return this.browser_;
   };
 
   /**
    * @return {tr.Version}
    */
   UserAgent.prototype.getBrowserVersion = function () {
-    return this.browserVersion;
+    return this.browserVersion_;
   };
 
   /**
    * @return {tr.Platform}
    */
   UserAgent.prototype.getPlatform = function () {
-    return this.platform;
+    return this.platform_;
   };
 
   /**
    * @return {tr.Version}
    */
   UserAgent.prototype.getPlatformVersion = function () {
-    return this.platformVersion;
+    return this.platformVersion_;
   };
 
   /**

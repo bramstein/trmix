@@ -17,22 +17,22 @@ goog.scope(function () {
     /**
      * @type {?number}
      */
-    this.major = goog.isDefAndNotNull(opt_major) ? opt_major : null;
+    this.major_ = goog.isDefAndNotNull(opt_major) ? opt_major : null;
 
     /**
      * @type {?number}
      */
-    this.minor = goog.isDefAndNotNull(opt_minor) ? opt_minor : null;
+    this.minor_ = goog.isDefAndNotNull(opt_minor) ? opt_minor : null;
 
     /**
      * @type {?number}
      */
-    this.patch = goog.isDefAndNotNull(opt_patch) ? opt_patch : null;
+    this.patch_ = goog.isDefAndNotNull(opt_patch) ? opt_patch : null;
 
     /**
      * @type {?(number|string)}
      */
-    this.build = goog.isDefAndNotNull(opt_build) ? opt_build : null;
+    this.build_ = goog.isDefAndNotNull(opt_build) ? opt_build : null;
   };
 
   var Version = tr.Version;
@@ -59,7 +59,7 @@ goog.scope(function () {
    * @return {boolean}
    */
   Version.prototype.isValid = function () {
-    return !goog.isNull(this.major);
+    return !goog.isNull(this.major_);
   };
 
   /**
@@ -75,13 +75,13 @@ goog.scope(function () {
    * @return {number}
    */
   Version.prototype.compare = function (version) {
-    if (this.major > version.major ||
-        ((this.major === version.major && this.minor > version.minor) ||
-          (this.major === version.major && this.minor === version.minor && this.patch > version.patch))) {
+    if (this.major_ > version.major_ ||
+        ((this.major_ === version.major_ && this.minor_ > version.minor_) ||
+          (this.major_ === version.major_ && this.minor_ === version.minor_ && this.patch_ > version.patch_))) {
       return 1;
-    } else if (this.major < version.major ||
-               ((this.major === version.major && this.minor < version.minor) ||
-                (this.major === version.major && this.minor === version.minor && this.patch < version.patch))) {
+    } else if (this.major_ < version.major_ ||
+               ((this.major_ === version.major_ && this.minor_ < version.minor_) ||
+                (this.major_ === version.major_ && this.minor_ === version.minor_ && this.patch_ < version.patch_))) {
       return -1;
     }
     return 0;
