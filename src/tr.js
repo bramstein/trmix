@@ -13,8 +13,7 @@ var userAgent = tr.UserAgent.parse(goog.global.navigator.userAgent),
 tr.dom.addClass(goog.global.document.documentElement, 'tr-' + rasterizer);
 
 if (antialiasing === tr.Antialiasing.UNKNOWN && antialiasingGuess !== tr.Antialiasing.UNKNOWN) {
-  antialiasing = antialiasingGuess;
-  tr.dom.addClass(goog.global.document.documentElement, 'tr-aa-unknown');
+  antialiasing = antialiasingGuess + '-unknown';
 }
 
 tr.dom.addClass(goog.global.document.documentElement, 'tr-aa-' + antialiasing);
