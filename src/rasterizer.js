@@ -34,7 +34,11 @@ goog.scope(function () {
           userAgent.getPlatformVersion().lt(new Version(6, 0))) {
         return Rasterizer.GDI;
       } else if (userAgent.getPlatformVersion().ge(new Version(6, 0))) {
-        return Rasterizer.DIRECTWRITE;
+        if (userAgent.getBrowser() === Browser.INTERNET_EXPLORER && userAgent.getBrowserVersion().le(new Version(8, 0))) {
+          return Rasterizer.GDI;
+        } else {
+          return Rasterizer.DIRECTWRITE;
+        }
       } else {
         return Rasterizer.UNKNOWN;
       }
