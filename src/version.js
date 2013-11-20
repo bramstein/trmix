@@ -136,13 +136,6 @@ goog.scope(function () {
   };
 
   /**
-   * @return {string}
-   */
-  Version.prototype.toString = function () {
-    return [this.major, this.minor || '', this.patch || '', this.build || ''].join('');
-  };
-
-  /**
    * @param {string} str
    * @return {!tr.Version}
    */
