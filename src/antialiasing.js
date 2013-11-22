@@ -30,7 +30,8 @@ goog.scope(function () {
         userAgent.getPlatform() === Platform.FIREFOX_OS ||
         userAgent.getPlatform() === Platform.CHROME_OS ||
         userAgent.getPlatform() === Platform.BLACKBERRY ||
-        userAgent.getPlatform() === Platform.WINDOWS_PHONE) {
+        userAgent.getPlatform() === Platform.WINDOWS_PHONE ||
+        userAgent.getPlatform() === Platform.ANDROID) {
       return Antialiasing.GRAYSCALE;
     } else if (userAgent.getPlatform() === Platform.WINDOWS &&
                userAgent.getPlatformVersion().ge(new Version(6, 2)) &&
