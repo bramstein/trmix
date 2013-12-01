@@ -11,10 +11,11 @@
     <script src="../vendor/google/base.js"></script>
     <script src="../node_modules/mocha/mocha.js"></script>
     <script src="../node_modules/expect.js/expect.js"></script>
+    <script src="../node_modules/mocha-browserstack/lib/mocha-browserstack.js"></script>
     <script src="deps.js"></script>
     <script>
       goog.require('tr');
-      mocha.ui('bdd');
+      mocha.ui('bdd').reporter(Mocha.BrowserStack);
     </script>
     <script src="dom-test.js"></script>
     <script src="version-test.js"></script>
