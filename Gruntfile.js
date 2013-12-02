@@ -6,7 +6,7 @@ module.exports = function (grunt) {
     warning_level: 'VERBOSE',
     summary_detail_level: 3,
     language_in: 'ECMASCRIPT5_STRICT',
-    output_wrapper: '"(function(){%output%}());"'
+    output_wrapper: '"/* Type Rendering Mix JS - (c) 2013 Tim Brown, Bram Stein. License: new BSD */(function(){%output%}());"'
   };
 
   grunt.initConfig({
