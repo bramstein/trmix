@@ -1,0 +1,18 @@
+#use-cases {
+  padding: 3em 0;
+}
+
+#use-cases:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-top: 120px solid #fff;
+  position: relative;
+  bottom: -198px;
+  left: 50%;
+  margin-left: -120px;
+  z-index: 20;
+}
+

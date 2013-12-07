@@ -31,6 +31,9 @@ module.exports = function (grunt) {
       },
       localtunnel: {
         command: 'node_modules/.bin/lt --port 9999'
+      },
+      assetgraph: {
+        command: 'node_modules/.bin/buildProduction --optimizeimages --outroot build --root website/ website/index.html'
       }
     },
     connect: {
@@ -74,5 +77,6 @@ module.exports = function (grunt) {
   grunt.registerTask('browsertest', ['connect', 'exec:browserstacktest']);
   grunt.registerTask('localtunnel', ['connect', 'exec:localtunnel']);
   grunt.registerTask('test', ['exec:test']);
+  grunt.registerTask('website', ['compile', 'exec:assetgraph']);
   grunt.registerTask('default', ['compile']);
 };

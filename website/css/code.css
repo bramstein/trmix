@@ -1,0 +1,11 @@
+code {
+  font-family: inconsolata, monospace;
+}
+
+code .literal {
+  color: #00A79D;
+}
+
+code .ident {
+  color: #1B75BB;
+}

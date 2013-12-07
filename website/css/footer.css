@@ -1,0 +1,32 @@
+footer {
+  text-align: center;
+  background-color: #00A79D;
+  color: white;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 3em 0 0;
+}
+
+footer section {
+  margin: 0 12px;
+  text-align: left;
+  width: 212px;
+  display: inline-block;
+}
+
+footer h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer > p {
+  text-align: left;
+  width: 692px;
+  display: inline-block;
+  opacity: 0.7;
+  margin: 3em 0 1em;
+}

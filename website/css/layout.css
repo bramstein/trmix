@@ -1,0 +1,20 @@
+html, body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+#intro, #use-cases, #instructions {
+  width: 692px;
+  margin: 0 auto;
+}
+
+figure {
+  margin: 1em 0;
+}
+
+figcaption {
+  font-size: 14px;
+  color: #6D6E70;
+  line-height: 20px;
+  text-align: center;
+}

@@ -1,0 +1,53 @@
+header {
+  background-color: #00A79D;
+  height: 560px;
+  color: #fff;
+  text-align: center;
+}
+
+header:after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-top: 120px solid #00A79D;
+  position: absolute;
+  top: 559px;
+  left: 50%;
+  margin-left: -120px;
+}
+
+header h1:before {
+  content: 'TR';
+  border-radius: 50%;
+  width: 63px;
+  height: 63px;
+  position: absolute;
+  background: #fff;
+  color: #00A79D;
+  font-size: 34px;
+  font-weight: 900;
+  display: inline-block;
+  line-height: 63px;
+  position: absolute;
+  top: 201.5px;
+  left: 50%;
+  margin: -31.5px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 50px;
+  font-weight: 400;
+  text-transform: uppercase;
+  line-height: 55px;
+  padding-top: 272px;
+}
+
+header h2 {
+  font-size: 25px;
+  font-weight: 300;
+  margin: 10px;
+}
+

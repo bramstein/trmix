@@ -1,0 +1,31 @@
+#intro {
+  margin: 7em auto 3em auto;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+}
+
+#intro code {
+  color: #939597;
+}
+
+#intro > a {
+  background-color: #EF4036;
+  color: #fff;
+  height: 2em;
+  display: inline-block;
+  text-align: center;
+  padding: 1em;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 1em 0;
+}
+
+#intro > a span {
+  display: block;
+  font-size: 15px;
+  text-transform: none;
+  color: #f9b29c;
+}

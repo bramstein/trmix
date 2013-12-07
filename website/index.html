@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Type Rendering Mix</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/type.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/code.css">
+    <link rel="stylesheet" href="css/intro.css">
+    <link rel="stylesheet" href="css/usecases.css">
+    <link rel="stylesheet" href="css/instructions.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script type="text/javascript" src="//use.typekit.net/riz1tjx.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body>
+    <header>
+      <h1>Type Rendering Mix</h1>
+      <h2>apply CSS based on the <strong>text rasterizer</strong> and<br><strong>antialiasing</strong> your browser is using</h2>
+    </header>
+
+    <div id="intro">
+      <pre><code>&lt;html class="<span class="literal">tr-coretext tr-aa-subpixel</span>"&gt;</code></pre>
+      <a href="trmix.js">Download trmix.js <span>(v1.0.0 – 3KB)</span></a>
+      <p>Get <strong>Type Rendering Mix</strong>, read <a href="#instructions">the instructions</a> and start styling!</p>
+    </div>
+    <div id="use-cases">
+      <h2>What? Why is this useful?</h2>
+      <p>Type Rendering Mix is useful in many situations. Let’s say you are using <a href="https://typekit.com/fonts/proxima-nova">Proxima Nova</a> on your website. Below you can see how the “thin” weight will look in OS X and Windows 7. Due to the way the Core Text rasterizer works, fonts will look heavier on OS X and iOS than on other platforms.</p>
+
+      <figure>
+        <img width="692" height="225" src="images/rasterizer.png">
+        <figcaption>Proxima Nova Thin rendered using Chrome on OS X (left) and Windows 7 (right). Note that OS X renders text heavier compared to Windows 7.</figcaption>
+      </figure>
+
+      <p>Designers often attempt to create consistent font rendering by applying <code>-webkit-font-smoothing: antialiased</code> and <code>-moz-osx-font-smoothing: grayscale</code>. This will make type appear lighter, but it also disables sub-pixel antialiasing which results in the text looking slightly more blurred.</p>
+
+      <pre><code><span class="ident">.tr-coretext</span> {&#10;  font-weight: <span class="literal">100</span>;&#10;}</code></pre>
+
+      <p>Using Type Rendering Mix you can instead decrease the font weight for browsers that use Core Text to render text. By only applying changes when Core Text is used you will achieve a more consistent rendering while preserving the accuracy of sub-pixel antialiasing.</p>
+
+      <p>Another use case for Type Rendering Mix is to disable web fonts when no antialiasing is applied. In the following example we fall back on Verdana, one of the core web fonts that is known to render well when antialiasing is disabled.</p>
+
+      <pre><code><span class="ident">.tr-aa-none</span> {&#10;  font-family: <span class="literal">Verdana, sans-serif</span>;&#10;}</code></pre>
+
+      <p>You could also disable fonts if you know that they render badly on one or multiple text rasterizers.</p>
+    </div>
+    <div id="instructions">
+      <h2>How does it work?</h2>
+      <p>Type Rendering Mix detects your browser’s text rasterizer and antialiasing method by parsing the user agent string. It will then add two classes to your HTML element. One class will describe the text rasterizer and the other the antialiasing method it is using. The text rasterizer class name can take the following values:</p>
+      <ul>
+        <li><code>tr-coretext</code> for OS X and iOS;</li>
+        <li><code>tr-gdi</code> for Windows XP and Windows Vista SP1;</li>
+        <li><code>tr-directwrite</code> for Windows Vista SP2 and above;</li>
+        <li><code>tr-freetype</code> for Android and Linux.</li>
+      </ul>
+
+      <p>The antialiasing method class name will be one of the following:</p>
+
+      <ul>
+        <li><code>tr-aa-none</code> when no antialiasing is applied;</li>
+        <li><code>tr-aa-grayscale</code> when grayscale antialiasing is applied;</li>
+        <li><code>tr-aa-subpixel</code> when subpixel antialiasing is applied.</li>
+      </ul>
+
+      <!--
+      <figure>
+        <img width="692" height="225" src="images/aa.png">
+        <figcaption>From left to right: the letter “a” rendered without antialiasing, with grayscale antialiasing and with subpixel antialiasing.</figcaption>
+      </figure>
+      -->
+      <p>If Type Rendering Mix can’t determine the antialiasing method with absolute certainty it will attempt to guess. In this case unknown will be added to the class name:</p>
+
+      <ul>
+        <li><code>tr-aa-unknown-none</code> when no antialiasing is guessed;</li>
+        <li><code>tr-aa-unknown-grayscale</code> when grayscale antialiasing is guessed;</li>
+        <li><code>tr-aa-unknown-subpixel</code> when subpixel antialiasing is guessed.</li>
+      </ul>
+
+      <p>When it is impossible to determine or guess the text rasterizer and antialiasing method <code>tr-unknown</code> and <code>tr-aa-unknown</code> will be used to indicate an unknown text rasterizer and antialiasing method.</p>
+    </div>
+    <footer>
+      <section>
+        <h3>Browser support</h3>
+        <p>Type Rendering Mix supports IE6+, Chrome, Firefox, Safari, Opera, Android 2.2+, iOS 4.2+ and Opera. Other browsers may work, but are not extensively tested.</p>
+      </section>
+      <section>
+        <h3>Learn more?</h3>
+        <p>A good place to start learning is <a href="http://blog.typekit.com/2010/10/05/type-rendering-on-the-web/">Typekit's Type Rendering series</a>. It covers type rendering differences in <a href="http://blog.typekit.com/2010/10/15/type-rendering-operating-systems/">operating systems</a>, <a href="http://blog.typekit.com/2010/10/21/type-rendering-web-browsers/">web browsers</a>, <a href="http://blog.typekit.com/2010/11/09/type-rendering-the-design-of-fonts-for-the-web/">fonts</a> and more.</p>
+      </section>
+      <section>
+        <h3>Follow us on Twitter</h3>
+        <p>Follow <a href="http://twitter.com/typerendering">Type Rendering on Twitter</a> and tell folks that you care about how type looks on the web – in all browsers, in all operating systems, and on all devices.</p>
+      </section>
+      <p>Type Rendering Mix is crafted with care by <a href="http://nicewebtype.com/">Tim Brown</a> and <a href="http://www.bramstein.com">Bram Stein</a>. Set in <a href="http://www.janfromm.de/typefaces/rooneysans/overview/">Rooney Sans</a> and <a href="http://levien.com/type/myfonts/inconsolata.html">Inconsolata</a>, served by <a href="http://www.typekit.com/">Typekit</a>. View the <a href="/old/">old type rendering site</a>.</p>
+    </footer>
+  </body>
+</html>
