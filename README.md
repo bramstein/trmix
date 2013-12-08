@@ -1,6 +1,6 @@
 ## Type Rendering Mix
 
-[Type Rendering Mix website][http://www.typerendering.com]
+[Type Rendering Mix website](http://www.typerendering.com)
 
 Type Rendering Mix detects your browser’s text rasterizer and antialiasing method by parsing the user agent string. It will then add two classes to your HTML element. One class will describe the text rasterizer and the other the antialiasing method it is using:
 
