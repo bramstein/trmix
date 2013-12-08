@@ -14,9 +14,9 @@ figure {
 
 figcaption {
   font-size: 14px;
-  color: #939597;
+  color: #aaa;
   line-height: 20px;
-  text-align: center;
+  text-align: left;
 }
 
 figure img {

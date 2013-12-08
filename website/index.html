@@ -38,6 +38,11 @@
 
       <p>Designers often attempt to create consistent font rendering by applying <code>-webkit-font-smoothing: antialiased</code> and <code>-moz-osx-font-smoothing: grayscale</code>. This will make type appear lighter, but it also disables sub-pixel antialiasing which results in text looking more blurred.</p>
 
+      <figure>
+        <img width="692" height="183" src="images/aa.png">
+        <figcaption>From left to right: the letter “a” rendered without antialiasing, with grayscale antialiasing and with subpixel antialiasing.</figcaption>
+      </figure>
+
       <p>Using Type Rendering Mix you can instead decrease the font weight for browsers that use Core Text to render text. By only applying changes when Core Text is used you will achieve a more consistent rendering while preserving the accuracy of sub-pixel antialiasing.</p>
 
       <pre><code><span class="ident">.tr-coretext</span> {&#10;  font-weight: <span class="literal">100</span>;&#10;}</code></pre>
@@ -51,13 +56,13 @@
     <div id="instructions">
       <h2>How does it work?</h2>
       <p>Include <a href="trmix.js">trmix.js</a> anywhere in your HTML page:
-      
+
       <pre><code>&lt;<span class="ident">script</span> src="<span class="literal">trmix.js</span>"&gt;&lt;/script&gt;</code></pre>
 
       <p>Reload your page and Type Rendering Mix will detect your browser’s text rasterizer and add two classes to your HTML element. One class will describe the text rasterizer and the other the antialiasing method.
- 
+
       <pre><code>&lt;<span class="ident">html</span> class="<span class="literal">tr-coretext tr-aa-subpixel</span>"&gt;</code></pre>
-    
+
       <p>The text rasterizer class can take the following values:</p>
       <ul>
         <li><code>tr-coretext</code> for OS X and iOS;</li>
@@ -74,12 +79,7 @@
         <li><code>tr-aa-subpixel</code> when subpixel antialiasing is applied.</li>
       </ul>
 
-      
-      <figure>
-        <img width="692" height="225" src="images/aa.png">
-        <figcaption>From left to right: the letter “a” rendered without antialiasing, with grayscale antialiasing and with subpixel antialiasing.</figcaption>
-      </figure>
-     
+
       <p>If Type Rendering Mix can’t determine the antialiasing method with absolute certainty it will attempt to guess. In this case <code>unknown</code> will be added to the class name. The resulting classes are:</p>
 
       <ul>
