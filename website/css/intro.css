@@ -9,7 +9,7 @@
   color: #939597;
 }
 
-#intro > a {
+#intro .download {
   background-color: #EF4036;
   color: #fff;
   height: 2em;
@@ -20,12 +20,23 @@
   line-height: 20px;
   text-transform: uppercase;
   text-decoration: none;
-  margin: 1em 0;
+  margin: 1em 0 0;
 }
 
-#intro > a span {
+#intro .download:hover {
+  text-decoration: underline
+}
+
+#intro .download span {
   display: block;
   font-size: 15px;
   text-transform: none;
   color: #f9b29c;
+}
+
+#intro .source {
+  font-size: 15px;
+  color: #ccc;
+  display: block;
+  margin: 0 0 2em 0;
 }

@@ -4,7 +4,7 @@ footer {
   color: white;
   font-size: 14px;
   line-height: 20px;
-  padding: 3em 0 0;
+  padding: 3em 0 1em;
 }
 
 footer section {
@@ -24,10 +24,11 @@ footer a {
 }
 
 footer > p {
+  clear: both;
   text-align: left;
   width: 692px;
-  display: inline-block;
-  opacity: 0.7;
-  margin: 3em 0 1em;
-  line-height: 18px;
+  display: block;
+  opacity: 0.6;
+  margin: 3em auto 0 auto;
+  line-height: 16px;
 }
