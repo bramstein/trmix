@@ -48,6 +48,14 @@
     </div>
     <div id="instructions">
       <h2>How does it work?</h2>
+      <p>Just include <a href="trmix.js">trmix.js</a> anywhere in your HTML page:
+      
+      <pre><code>&lt;<span class="ident">script</span> src="<span class="literal">trmix.js</span>"&gt;&lt;/script&gt;</code></pre>
+
+      <p>Reload your HTML page and it will add two classes to your <code>&lt;<span class="ident">html</span>&gt;</code> element. The classes will contain the name of the text rasterizer and the antialiasing method:</p>
+        
+      <pre><code>&lt;<span class="ident">html</span> class="<span class="literal">tr-coretext tr-aa-subpixel</span>"&gt;</code></pre>
+
       <p>Type Rendering Mix detects your browser’s text rasterizer and antialiasing method by parsing the user agent string. It will then add two classes to your HTML element. One class will describe the text rasterizer and the other the antialiasing method it is using. The text rasterizer class name can take the following values:</p>
       <ul>
         <li><code>tr-coretext</code> for OS X and iOS;</li>
@@ -64,12 +72,12 @@
         <li><code>tr-aa-subpixel</code> when subpixel antialiasing is applied.</li>
       </ul>
 
-      <!--
+      
       <figure>
         <img width="692" height="225" src="images/aa.png">
         <figcaption>From left to right: the letter “a” rendered without antialiasing, with grayscale antialiasing and with subpixel antialiasing.</figcaption>
       </figure>
-      -->
+     
       <p>If Type Rendering Mix can’t determine the antialiasing method with absolute certainty it will attempt to guess. In this case <code>unknown</code> will be added to the class name:</p>
 
       <ul>

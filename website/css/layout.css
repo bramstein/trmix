@@ -18,3 +18,7 @@ figcaption {
   line-height: 20px;
   text-align: center;
 }
+
+figure img {
+  background-color: #fff;
+}

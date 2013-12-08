@@ -29,4 +29,5 @@ footer > p {
   display: inline-block;
   opacity: 0.7;
   margin: 3em 0 1em;
+  line-height: 18px;
 }
