@@ -1,10 +1,13 @@
 footer {
   text-align: center;
-  background-color: #00A79D;
   color: white;
   font-size: 14px;
   line-height: 20px;
-  padding: 3em 0 1em;
+  padding: 1.5em 0 1em;
+  background-color: #00A79D;
+  background: url(../images/footer-block-left.png) bottom left no-repeat,
+              url(../images/footer-block-right.png) bottom right no-repeat,
+              #00A79D;
 }
 
 footer section {

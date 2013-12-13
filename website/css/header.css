@@ -3,6 +3,9 @@ header {
   height: 560px;
   color: #fff;
   text-align: center;
+  background: url(../images/header-block-left.png) top left no-repeat,
+              url(../images/header-block-right.png) top right no-repeat,
+              #00A79D;
 }
 
 header:after {
