@@ -63,12 +63,19 @@ module.exports = function (grunt) {
           formatting: ['PRETTY_PRINT', 'PRINT_INPUT_DELIMITER']
         })
       }
+    },
+    copy: {
+      dist: {
+        src: 'build/trmix.js',
+        dest: 'dist/trmix.js'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-closurecompiler');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-exec');
 
   grunt.registerTask('compile', ['closurecompiler:compile']);
@@ -78,5 +85,6 @@ module.exports = function (grunt) {
   grunt.registerTask('localtunnel', ['connect', 'exec:localtunnel']);
   grunt.registerTask('test', ['exec:test']);
   grunt.registerTask('website', ['compile', 'exec:assetgraph']);
+  grunt.registerTask('dist',    ['compile', 'copy:dist']);
   grunt.registerTask('default', ['compile']);
 };
