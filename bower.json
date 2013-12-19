@@ -1,0 +1,22 @@
+{
+  "name": "trmix",
+  "homepage": "http://typerendering.com",
+  "authors": [
+    "Bram Stein <b.l.stein@gmail.com> (http://www.bramstein.com)"
+  ],
+  "main": "dist/trmix.js",
+  "keywords": [
+    "type",
+    "typography",
+    "rendering",
+    "antialiasing"
+  ],
+  "license": "BSD",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "vendor",
+    "website"
+  ]
+}
