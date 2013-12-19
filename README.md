@@ -33,6 +33,10 @@ Download the latest version at http://www.typerendering.com and include it in yo
 
     <script src="trmix.js"></script>
 
+If you are using [Bower](http://bower.io/) you can install Type Rendering Mix using:
+
+    bower install trmix
+
 ## Copyright and License
 
 This library is licensed under the two-clause BSD license. Copyright 2013 Tim Brown, Bram Stein. All rights reserved.
