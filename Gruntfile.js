@@ -48,7 +48,7 @@ module.exports = function (grunt) {
     closurecompiler: {
       compile: {
         files: {
-          'build/trmix.js': ['src/**/*.js', 'vendor/google/base.js']
+          'build/trmix.min.js': ['src/**/*.js', 'vendor/google/base.js']
         },
         options: extend({}, compilerOptions, {
           define: 'goog.DEBUG=false'
@@ -62,12 +62,25 @@ module.exports = function (grunt) {
           debug: true,
           formatting: ['PRETTY_PRINT', 'PRINT_INPUT_DELIMITER']
         })
+      },
+      concat: {
+        files: {
+          'build/trmix.js': ['src/**/*.js', 'vendor/google/base.js']
+        },
+        options: {
+          debug: true,
+          formatting: ['PRETTY_PRINT', 'PRINT_INPUT_DELIMITER'],
+          output_wrapper: compilerOptions.output_wrapper
+        }
       }
     },
     copy: {
       dist: {
-        src: 'build/trmix.js',
-        dest: 'dist/trmix.js'
+        cwd: 'build',
+        src: ['trmix.js', 'trmix.min.js'],
+        dest: 'dist/',
+        flatten: true,
+        expand: true
       }
     }
   });
@@ -76,15 +89,17 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-exec');
 
   grunt.registerTask('compile', ['closurecompiler:compile']);
-  grunt.registerTask('deps', ['exec:deps']);
   grunt.registerTask('debug', ['closurecompiler:debug']);
+  grunt.registerTask('concat', ['closurecompiler:concat']);
+  grunt.registerTask('deps', ['exec:deps']);
+  grunt.registerTask('test', ['exec:test']);
   grunt.registerTask('browsertest', ['connect', 'exec:browserstacktest']);
   grunt.registerTask('localtunnel', ['connect', 'exec:localtunnel']);
-  grunt.registerTask('test', ['exec:test']);
   grunt.registerTask('website', ['compile', 'exec:assetgraph']);
-  grunt.registerTask('dist',    ['compile', 'copy:dist']);
+  grunt.registerTask('dist',    ['compile', 'concat', 'copy:dist']);
   grunt.registerTask('default', ['compile']);
 };

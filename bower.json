@@ -4,7 +4,7 @@
   "authors": [
     "Bram Stein <b.l.stein@gmail.com> (http://www.bramstein.com)"
   ],
-  "main": "dist/trmix.js",
+  "main": "dist/trmix.min.js",
   "keywords": [
     "type",
     "typography",
