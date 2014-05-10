@@ -1,5 +1,8 @@
 ## Type Rendering Mix
 
+[![Bower version](https://badge.fury.io/bo/trmix.svg)](http://badge.fury.io/bo/trmix)
+[![devDependency Status](https://david-dm.org/bramstein/trmix/dev-status.svg)](https://david-dm.org/bramstein/trmix#info=devDependencies)
+
 [Type Rendering Mix website](http://www.typerendering.com)
 
 Type Rendering Mix detects your browser’s text rasterizer and antialiasing method by parsing the user agent string. It will then add two classes to your HTML element. One class will describe the text rasterizer and the other the antialiasing method it is using:
