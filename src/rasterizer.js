@@ -29,9 +29,22 @@ goog.scope(function () {
     if (userAgent.getPlatform() === Platform.WINDOWS) {
       // Windows XP only has GDI, and Chrome and Opera always
       // use GDI on Windows.
-      if (userAgent.getBrowser() === Browser.CHROME ||
-          userAgent.getBrowser() === Browser.OPERA ||
-          userAgent.getPlatformVersion().lt(new Version(6, 0))) {
+      //
+      if (userAgent.getBrowser() === Browser.CHROME) {
+        // Chrome switched to use DirectWrite from version 37,
+        // but only on Windows 7+
+        if (userAgent.getBrowserVersion().ge(new Version(37)) &&
+            userAgent.getPlatformVersion().ge(new Version(6, 1))) {
+          return Rasterizer.DIRECTWRITE;
+        } else {
+          return Rasterizer.GDI;
+        }
+      } else if (userAgent.getBrowser() === Browser.OPERA) {
+        // Not known at this time when the Blink based Opera
+        // on Windows is going to support DirectWrite.
+        return Rasterizer.GDI;
+      } else if (userAgent.getPlatformVersion().lt(new Version(6, 0))) {
+        // Before Windows Vista SP2+, there was only GDI
         return Rasterizer.GDI;
       } else if (userAgent.getPlatformVersion().ge(new Version(6, 0))) {
         if (userAgent.getBrowser() === Browser.INTERNET_EXPLORER && userAgent.getBrowserVersion().le(new Version(8, 0))) {
