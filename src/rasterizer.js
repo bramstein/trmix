@@ -40,9 +40,15 @@ goog.scope(function () {
           return Rasterizer.GDI;
         }
       } else if (userAgent.getBrowser() === Browser.OPERA) {
-        // Not known at this time when the Blink based Opera
-        // on Windows is going to support DirectWrite.
-        return Rasterizer.GDI;
+        // Opera is based on Chromium and will most likely get DirectWrite
+        // support with version 24. Like Chrome it only uses DirectWrite
+        // on Windows 7+.
+        if (userAgent.getBrowserVersion().ge(new Version(24)) &&
+            userAgent.getPlatformVersion().ge(new Version(6, 1))) {
+          return Rasterizer.DIRECTWRITE;
+        } else {
+          return Rasterizer.GDI;
+        }
       } else if (userAgent.getPlatformVersion().lt(new Version(6, 0))) {
         // Before Windows Vista SP2+, there was only GDI
         return Rasterizer.GDI;
