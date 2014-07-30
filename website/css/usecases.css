@@ -1,5 +1,5 @@
 #use-cases {
-  padding: 3em 0;
+  padding: 3em 8px 0 8px;
 }
 
 #use-cases:after {
@@ -10,9 +10,22 @@
   border-right: 120px solid transparent;
   border-top: 120px solid #fff;
   position: relative;
-  bottom: -198px;
+  bottom: -140px;
   left: 50%;
   margin-left: -120px;
   z-index: 20;
 }
 
+@media only screen and (max-device-width: 500px), only screen and (max-width: 500px){
+  #use-cases:after {
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-top: 90px solid #fff;
+    margin-left: -90px;
+    bottom: -113px;
+  }
+
+  #use-cases {
+    padding: 2em 8px 0 8px;
+  }
+}

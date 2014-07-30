@@ -40,3 +40,18 @@
   display: block;
   margin: 0 0 2em 0;
 }
+
+@media only screen and (max-device-width: 500px), only screen and (max-width: 500px){
+  #intro {
+    margin: 6em auto 3em auto;
+  }
+  #intro code{
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-device-width: 360px), only screen and (max-width: 360px){
+  #intro {
+    font-size: 19px;
+  }
+}

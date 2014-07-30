@@ -1,10 +1,10 @@
 html, body {
   margin: 0;
-  overflow-x: hidden;
+  min-width: 280px;
 }
 
-#intro, #use-cases, #instructions {
-  width: 692px;
+#intro, #use-cases, #instructions .content {
+  max-width: 692px;
   margin: 0 auto;
 }
 
@@ -21,4 +21,10 @@ figcaption {
 
 figure img {
   background-color: #fff;
+  width: 100%;
+}
+@media only screen and (max-device-width: 620px), only screen and (max-width: 620px){
+  code {
+    white-space: normal;
+  }
 }
