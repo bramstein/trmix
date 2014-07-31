@@ -1,7 +1,7 @@
 #instructions {
   position: relative;
   background-color: #F1F1F2;
-  padding: 7em 0 6em 0;
+  padding: 7em 8px 6em 8px;
 }
 
 #instructions:before, #instructions:after {
@@ -10,20 +10,6 @@
   background: #F1F1F2;
   top: 0;
   bottom: 0;
-  width: 999px;
-}
-
-#instructions:before {
-  right: 100%;
-}
-
-#instructions:after {
-  left: 100%;
-}
-
-#instructions code {
-  background-color: #fff;
-  padding: 2px;
 }
 
 #instructions pre > code {

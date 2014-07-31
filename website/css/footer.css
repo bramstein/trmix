@@ -3,7 +3,7 @@ footer {
   color: white;
   font-size: 14px;
   line-height: 20px;
-  padding: 1.5em 0 1em;
+  padding: 1.5em 7px 1em 7px;
   background-color: #00A79D;
   background: url(../images/footer-block-left.png) bottom left no-repeat,
               url(../images/footer-block-right.png) bottom right no-repeat,
@@ -29,9 +29,16 @@ footer a {
 footer > p {
   clear: both;
   text-align: left;
-  width: 692px;
   display: block;
   opacity: 0.6;
   margin: 3em auto 0 auto;
   line-height: 18px;
+  max-width: 692px;
+}
+
+@media only screen and (max-device-width: 750px), only screen and (max-width: 750px) {
+  footer section {
+    width:auto;
+    margin:0;
+  }
 }

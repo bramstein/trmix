@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Type Rendering Mix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/type.css">
@@ -16,9 +17,13 @@
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
-    <header>
-      <h1>Type Rendering Mix</h1>
-      <h2>apply CSS based on the <strong>text rasterizer</strong> and<br><strong>antialiasing</strong> your browser is using</h2>
+    <header class="animated-blocks">
+      <div id="block-container"></div>
+      <div class="content">
+          <span class="logo">TR</span>
+          <h1>Type Rendering Mix</h1>
+          <h2>apply CSS based on the <strong>text rasterizer</strong> and<br><strong>antialiasing</strong> your browser is using</h2>
+      </div>
     </header>
 
     <div id="intro">
@@ -32,14 +37,14 @@
       <p>Type Rendering Mix is useful in many situations. Let’s say you are using <a href="https://typekit.com/fonts/proxima-nova">Proxima Nova</a> on your website. Below you can see how the “thin” weight will look in OS X and Windows 7. Due to the way the Core Text rasterizer works, fonts will look heavier on OS X and iOS than on other platforms.</p>
 
       <figure>
-        <img width="692" height="225" src="images/rasterizer.png">
+        <img src="images/rasterizer.png">
         <figcaption>“Proxima Nova Thin” rendered using Chrome on OS X (left) and Windows 7 (right). Note that OS X renders text heavier compared to Windows 7.</figcaption>
       </figure>
 
       <p>Designers often attempt to create consistent font rendering by applying <code>-webkit-font-smoothing: antialiased</code> and <code>-moz-osx-font-smoothing: grayscale</code>. This will make type appear lighter, but it also disables sub-pixel antialiasing which results in text looking more blurred.</p>
 
       <figure>
-        <img width="692" height="183" src="images/aa.png">
+        <img src="images/aa.png">
         <figcaption>From left to right: the letter “a” rendered without antialiasing, with grayscale antialiasing and with subpixel antialiasing.</figcaption>
       </figure>
 
@@ -54,41 +59,43 @@
       <p>You can also disable web fonts if you know that they render badly on some text rasterizers.</p>
     </div>
     <div id="instructions">
-      <h2>How does it work?</h2>
-      <p>Download and include <a href="trmix.min.js">trmix.min.js</a> (or the <a href="trmix.js">trmix.js</a> debug version) anywhere in your HTML page. If you are using <a href="http://bower.io/">Bower</a> you can also install Type Rendering Mix with <code>bower install trmix</code>.
+      <div class="content">
+        <h2>How does it work?</h2>
+        <p>Download and include <a href="trmix.min.js">trmix.min.js</a> (or the <a href="trmix.js">trmix.js</a> debug version) anywhere in your HTML page. If you are using <a href="http://bower.io/">Bower</a> you can also install Type Rendering Mix with <code>bower install trmix</code>.
 
-      <pre><code>&lt;<span class="ident">script</span> src="<span class="literal">trmix.js</span>"&gt;&lt;/script&gt;</code></pre>
+        <pre><code>&lt;<span class="ident">script</span> src="<span class="literal">trmix.js</span>"&gt;&lt;/script&gt;</code></pre>
 
-      <p>Reload your page and Type Rendering Mix will detect your browser’s text rasterizer and add two classes to your HTML element. One class will describe the text rasterizer and the other the antialiasing method.
+        <p>Reload your page and Type Rendering Mix will detect your browser’s text rasterizer and add two classes to your HTML element. One class will describe the text rasterizer and the other the antialiasing method.
 
-      <pre><code>&lt;<span class="ident">html</span> class="<span class="literal">tr-coretext tr-aa-subpixel</span>"&gt;</code></pre>
+        <pre><code>&lt;<span class="ident">html</span> class="<span class="literal">tr-coretext tr-aa-subpixel</span>"&gt;</code></pre>
 
-      <p>The text rasterizer class can take the following values:</p>
-      <ul>
-        <li><code>tr-coretext</code> for OS X and iOS;</li>
-        <li><code>tr-gdi</code> for Windows XP and Windows Vista SP1;</li>
-        <li><code>tr-directwrite</code> for Windows Vista SP2 and above;</li>
-        <li><code>tr-freetype</code> for Android and Linux.</li>
-      </ul>
+        <p>The text rasterizer class can take the following values:</p>
+        <ul>
+          <li><code>tr-coretext</code> for OS X and iOS;</li>
+          <li><code>tr-gdi</code> for Windows XP and Windows Vista SP1;</li>
+          <li><code>tr-directwrite</code> for Windows Vista SP2 and above;</li>
+          <li><code>tr-freetype</code> for Android and Linux.</li>
+        </ul>
 
-      <p>The antialiasing method class will be one of the following:</p>
+        <p>The antialiasing method class will be one of the following:</p>
 
-      <ul>
-        <li><code>tr-aa-none</code> when no antialiasing is applied;</li>
-        <li><code>tr-aa-grayscale</code> when grayscale antialiasing is applied;</li>
-        <li><code>tr-aa-subpixel</code> when subpixel antialiasing is applied.</li>
-      </ul>
+        <ul>
+          <li><code>tr-aa-none</code> when no antialiasing is applied;</li>
+          <li><code>tr-aa-grayscale</code> when grayscale antialiasing is applied;</li>
+          <li><code>tr-aa-subpixel</code> when subpixel antialiasing is applied.</li>
+        </ul>
 
 
-      <p>If Type Rendering Mix can’t determine the antialiasing method with absolute certainty it will attempt to guess. In this case <code>unknown</code> will be added to the class name. The resulting classes are:</p>
+        <p>If Type Rendering Mix can’t determine the antialiasing method with absolute certainty it will attempt to guess. In this case <code>unknown</code> will be added to the class name. The resulting classes are:</p>
 
-      <ul>
-        <li><code>tr-aa-unknown-none</code> when aliasing is guessed;</li>
-        <li><code>tr-aa-unknown-grayscale</code> when grayscale antialiasing is guessed;</li>
-        <li><code>tr-aa-unknown-subpixel</code> when subpixel antialiasing is guessed.</li>
-      </ul>
+        <ul>
+          <li><code>tr-aa-unknown-none</code> when aliasing is guessed;</li>
+          <li><code>tr-aa-unknown-grayscale</code> when grayscale antialiasing is guessed;</li>
+          <li><code>tr-aa-unknown-subpixel</code> when subpixel antialiasing is guessed.</li>
+        </ul>
 
-      <p>When it is impossible to determine or guess the text rasterizer and antialiasing method <code>tr-unknown</code> and <code>tr-aa-unknown</code> will be used to indicate an unknown text rasterizer and antialiasing method.</p>
+        <p>When it is impossible to determine or guess the text rasterizer and antialiasing method <code>tr-unknown</code> and <code>tr-aa-unknown</code> will be used to indicate an unknown text rasterizer and antialiasing method.</p>
+      </div>
     </div>
     <footer>
       <section>
@@ -114,5 +121,6 @@
         ga('create', 'UA-46292041-1', 'typerendering.com');
         ga('send', 'pageview');
     </script>
+    <script src="js/animated-blocks.js"></script>
   </body>
 </html>
