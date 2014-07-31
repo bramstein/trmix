@@ -1,5 +1,4 @@
 (function () {
-  var blocks = [];
   var container = document.getElementById('block-container');
   var columns = 16;
   var rows = 10;
@@ -26,5 +25,5 @@
       frag.appendChild(block);
     }
   }
-  container.appendChild(frag.cloneNode(true));
+  container.appendChild(frag);
 }());
