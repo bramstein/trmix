@@ -12,10 +12,6 @@
   bottom: 0;
 }
 
-#instructions code {
-  /* padding: 2px; */
-}
-
 #instructions pre > code {
   background-color: transparent;
   padding: 0;

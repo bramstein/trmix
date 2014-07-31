@@ -16,7 +16,7 @@
   z-index: 20;
 }
 
-@media only screen and (max-device-width: 500px), only screen and (max-width: 500px){
+@media only screen and (max-device-width: 500px), only screen and (max-width: 500px) {
   #use-cases:after {
     border-left: 90px solid transparent;
     border-right: 90px solid transparent;
