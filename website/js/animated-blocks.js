@@ -1,40 +1,30 @@
-/**
-	Animated blocks
-**/
 (function () {
   var blocks = [];
   var container = document.getElementById('block-container');
   var columns = 16;
   var rows = 10;
+  var cd = {firstx : 2, firsty : 2, lastx : columns - 3, lasty : rows - 2};
+  var delay = [];
+  var animatedblocks = rows * columns - (cd.lastx - cd.firstx) * (cd.lasty - cd.firsty);
 
-  // Coordinates in the grid of the content that needs to be excluded
-  var cd = {
-    firstx : 2,
-    firsty : 2,
-    lastx : columns - 3,
-    lasty : rows - 2
-  };
-
+  for(var i = 0; i <  animatedblocks; i++){
+    delay.push(i / 2);
+  }
+  var frag = document.createDocumentFragment();
   for(var y = 0; y < rows; y++){
     for(var x = 0; x < columns; x++) {
       var block = document.createElement('div');
-      container.appendChild(block);
-      if (!(x >= cd.firstx && x <= cd.lastx &&
-        y >= cd.firsty && y < cd.lasty)){
-        blocks.push(block);
+      if (!(x >= cd.firstx && x <= cd.lastx && y >= cd.firsty && y < cd.lasty)){
+        var randomindex = Math.floor(Math.random() * (delay.length));
+        block.style.cssText =
+          'animation : animate-opacity 20s ' +  delay[randomindex] + 's infinite;' +
+          '-webkit-animation : animate-opacity 20s ' +  delay[randomindex] + 's infinite;' +
+          '-moz-animation : animate-opacity 20s ' +  delay[randomindex] + 's infinite;' +
+          '-o-animation : animate-opacity 20s ' +  delay[randomindex] + 's infinite;';
+        delay.splice(randomindex,1);
       }
+      frag.appendChild(block);
     }
   }
-
-  var delay = 0;
-  while(blocks.length !== 0){
-    var randomindex = Math.floor(Math.random() * (blocks.length));
-    blocks[randomindex].style.cssText =
-      'animation : animate-opacity 20s ' +  delay + 's infinite;' +
-      '-webkit-animation : animate-opacity 20s ' +  delay + 's infinite;' +
-      '-moz-animation : animate-opacity 20s ' +  delay + 's infinite;' +
-      '-o-animation : animate-opacity 20s ' +  delay + 's infinite;';
-    delay += 0.5;
-    blocks.splice(randomindex,1);
-  }
+  container.appendChild(frag.cloneNode(true));
 }());
