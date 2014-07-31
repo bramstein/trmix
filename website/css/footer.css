@@ -36,7 +36,7 @@ footer > p {
   max-width: 692px;
 }
 
-@media only screen and (max-device-width: 750px), only screen and (max-width: 750px){
+@media only screen and (max-device-width: 750px), only screen and (max-width: 750px) {
   footer section {
     width:auto;
     margin:0;

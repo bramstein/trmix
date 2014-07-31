@@ -17,23 +17,23 @@
 
   for(var y = 0; y < this.yRows; y++){
     for(var x = 0; x < this.xRows; x++) {
-      var id = (y * this.xRows) + x;
-      container.append("<div id='" + id  + "'></div>");
+      var block = document.createElement('div');
+      container.append(block);
       if (!(x >= cd.firstx && x <= cd.lastx &&
         y >= cd.firsty && y < cd.lasty)){
-        this.blocks.push(id);
+        this.blocks.push(block);
       }
     }
   }
+  
   var delay = 0;
   while(this.blocks.length !== 0){
     var randomindex = Math.floor(Math.random() * (this.blocks.length));
-    $("#" + this.blocks[randomindex]).css({
-      'animation': 'animate-opacity 20s ' +  delay + 's infinite',
-      '-webkit-animation': 'animate-opacity 20s ' +  delay + 's infinite',
-      '-moz-animation': 'animate-opacity 20s ' +  delay + 's infinite',
-      '-o-animation' : 'animate-opacity 20s ' +  delay + 's infinite'
-    });
+    this.blocks[randomindex].style.cssText =
+      'animation : animate-opacity 20s ' +  delay + 's infinite;' +
+      '-webkit-animation : animate-opacity 20s ' +  delay + 's infinite;' +
+      '-moz-animation : animate-opacity 20s ' +  delay + 's infinite;' +
+      '-o-animation : animate-opacity 20s ' +  delay + 's infinite;';
     delay+=0.5;
     this.blocks.splice(randomindex,1);
   }
