@@ -58,8 +58,8 @@ header h2 {
   opacity: 0;
   display: block;
   float: right;
-  width: 6.25%;
-  padding-bottom: 6.25%;
+  width: 5%;
+  padding-bottom: 5%;
 }
 
 .animated-blocks .content {
@@ -69,7 +69,7 @@ header h2 {
   width: 600px;
   left: 50%;
   margin-left: -300px;
-  margin-top: 18%;
+  margin-top: 11%;
 }
 
 @-webkit-keyframes animate-opacity {
@@ -90,7 +90,7 @@ header h2 {
 }
 
 
-@media all and (min-width: 1300px) {
+@media all and (min-width: 1600px) {
   header .logo {
     width: 100px;
     height: 100px;
@@ -117,24 +117,28 @@ header h2 {
   }
 }
 
-@media only screen and (max-device-width: 750px), only screen and (max-width: 750px) {
+@media only screen and (max-device-width: 1024px), only screen and (max-width: 1024px) {
+  .animated-blocks .content {
+    margin-top: 10%;  
+  }
+
   header h1 {
-    font-size: 28px;
-    line-height: 40px;
+    font-size: 48px;
+    line-height: 50px;
     margin-top: 69px;
   }
   header h2 {
-    font-size: 15px;
-    line-height: 23px;
-    margin-top: 0;
+    font-size: 25px;
+    line-height: 28px;
+    margin-top: 10px;
   }
 }
 
-@media only screen and (max-device-width: 500px), only screen and (max-width: 500px) {
+@media only screen and (max-device-width: 800px), only screen and (max-width: 800px) {
   .animated-blocks .content {
     width: 316px;
     margin-left: -156px;
-    margin-top: 15%;
+    margin-top: 9%;
   }
   header .logo {
     font-size: 24px;
@@ -146,7 +150,13 @@ header h2 {
   }
   header h1 {
     margin-top: 40px;
-    font-size: 23px;
+    font-size: 30px;
+  }
+
+  header h2 {
+    font-size: 15px;
+    line-height: 18px;
+    margin-top: 0;
   }
 
   header:after {
@@ -154,22 +164,5 @@ header h2 {
     border-right: 90px solid transparent;
     border-top: 90px solid #00A79D;
     bottom: -76px;
-  }
-}
-
-@media only screen and (max-device-width: 360px), only screen and (max-width: 360px) {
-  .animated-blocks .content {
-    width: 280px;
-    margin-left: -140px;
-  }
-
-  header h1 {
-    margin-top: 42px;
-    font-size: 20px;
-    line-height: 30px;
-  }
-  header h2 {
-    font-size: 13px;
-    line-height: 20px;
   }
 }
