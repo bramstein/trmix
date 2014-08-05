@@ -42,4 +42,4 @@ If you are using [Bower](http://bower.io/) you can install Type Rendering Mix us
 
 ## Copyright and License
 
-This library is licensed under the two-clause BSD license. Copyright 2013 Tim Brown, Bram Stein. All rights reserved.
+This library is licensed under the two-clause BSD license. Copyright 2013-2014 Tim Brown, Bram Stein. All rights reserved.
