@@ -169,7 +169,7 @@ header h2 {
 
 @media only screen and (max-device-width: 600px), only screen and (max-width: 600px) {
   .animated-blocks .content {
-    margin-top: 5%;
+    margin-top: 8%;
   }
 
   header h1 {
