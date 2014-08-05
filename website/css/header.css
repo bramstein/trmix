@@ -166,3 +166,13 @@ header h2 {
     bottom: -76px;
   }
 }
+
+@media only screen and (max-device-width: 600px), only screen and (max-width: 600px) {
+  .animated-blocks .content {
+    margin-top: 5%;
+  }
+
+  header h1 {
+    line-height: 34px;
+  }
+}
