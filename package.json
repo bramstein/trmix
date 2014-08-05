@@ -1,6 +1,6 @@
 {
   "name": "trmix",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Type Rendering Mix",
   "directories": {
     "test": "test"
