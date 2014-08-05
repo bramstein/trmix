@@ -1,4 +1,4 @@
-/* Type Rendering Mix JS - (c) 2013 Tim Brown, Bram Stein. License: new BSD */(function(){// Input 0
+/* Type Rendering Mix JS - (c) 2013-2014 Tim Brown, Bram Stein. License: new BSD */(function(){// Input 0
 var COMPILED = !0, goog = goog || {};
 goog.global = window;
 goog.DEBUG = !0;
@@ -335,7 +335,7 @@ goog.getMsg = function $goog$getMsg$($str$$, $opt_values$$) {
   var $values$$ = $opt_values$$ || {}, $key$$;
   for ($key$$ in $values$$) {
     var $value$$ = ("" + $values$$[$key$$]).replace(/\$/g, "$$$$");
-    $str$$ = $str$$.replace(RegExp("\\{\\$" + $key$$ + "\\}", "gi"), $value$$);
+    $str$$ = $str$$.replace(new RegExp("\\{\\$" + $key$$ + "\\}", "gi"), $value$$);
   }
   return $str$$;
 };
@@ -355,25 +355,6 @@ goog.inherits = function $goog$inherits$($childCtor$$, $parentCtor$$) {
   $childCtor$$.superClass_ = $parentCtor$$.prototype;
   $childCtor$$.prototype = new $tempCtor$$;
   $childCtor$$.prototype.constructor = $childCtor$$;
-};
-goog.base = function $goog$base$($me$$, $opt_methodName$$, $var_args$$) {
-  var $caller$$ = arguments.callee.caller;
-  if ($caller$$.superClass_) {
-    return $caller$$.superClass_.constructor.apply($me$$, Array.prototype.slice.call(arguments, 1));
-  }
-  for (var $args$$ = Array.prototype.slice.call(arguments, 2), $foundCaller$$ = !1, $ctor$$ = $me$$.constructor;$ctor$$;$ctor$$ = $ctor$$.superClass_ && $ctor$$.superClass_.constructor) {
-    if ($ctor$$.prototype[$opt_methodName$$] === $caller$$) {
-      $foundCaller$$ = !0;
-    } else {
-      if ($foundCaller$$) {
-        return $ctor$$.prototype[$opt_methodName$$].apply($me$$, $args$$);
-      }
-    }
-  }
-  if ($me$$[$opt_methodName$$] === $caller$$) {
-    return $me$$.constructor.prototype[$opt_methodName$$].apply($me$$, $args$$);
-  }
-  throw Error("goog.base called from a method of one name to a method of a different name");
 };
 goog.scope = function $goog$scope$($fn$$) {
   $fn$$.call(goog.global);
@@ -465,8 +446,9 @@ tr.Antialiasing.guess = function $tr$Antialiasing$guess$($userAgent$$) {
 // Input 6
 tr.Rasterizer = {UNKNOWN:"unknown", GDI:"gdi", DIRECTWRITE:"directwrite", CORETEXT:"coretext", FREETYPE:"freetype"};
 tr.Rasterizer.get = function $tr$Rasterizer$get$($userAgent$$) {
-  return $userAgent$$.getPlatform() === tr.Platform.WINDOWS ? $userAgent$$.getBrowser() === tr.Browser.CHROME || $userAgent$$.getBrowser() === tr.Browser.OPERA || $userAgent$$.getPlatformVersion().lt(new tr.Version(6, 0)) ? tr.Rasterizer.GDI : $userAgent$$.getPlatformVersion().ge(new tr.Version(6, 0)) ? $userAgent$$.getBrowser() === tr.Browser.INTERNET_EXPLORER && $userAgent$$.getBrowserVersion().le(new tr.Version(8, 0)) ? tr.Rasterizer.GDI : tr.Rasterizer.DIRECTWRITE : tr.Rasterizer.UNKNOWN : $userAgent$$.getPlatform() === 
-  tr.Platform.WINDOWS_PHONE ? tr.Rasterizer.DIRECTWRITE : $userAgent$$.getPlatform() === tr.Platform.OSX || $userAgent$$.getPlatform() === tr.Platform.IOS ? tr.Rasterizer.CORETEXT : $userAgent$$.getPlatform() === tr.Platform.ANDROID || $userAgent$$.getPlatform() === tr.Platform.LINUX || $userAgent$$.getPlatform() === tr.Platform.CHROME_OS || $userAgent$$.getPlatform() === tr.Platform.FIREFOX_OS || $userAgent$$.getPlatform() === tr.Platform.BLACKBERRY ? tr.Rasterizer.FREETYPE : tr.Rasterizer.UNKNOWN;
+  return $userAgent$$.getPlatform() === tr.Platform.WINDOWS ? $userAgent$$.getBrowser() === tr.Browser.CHROME ? $userAgent$$.getBrowserVersion().ge(new tr.Version(37)) && $userAgent$$.getPlatformVersion().ge(new tr.Version(6, 1)) ? tr.Rasterizer.DIRECTWRITE : tr.Rasterizer.GDI : $userAgent$$.getBrowser() === tr.Browser.OPERA ? $userAgent$$.getBrowserVersion().ge(new tr.Version(24)) && $userAgent$$.getPlatformVersion().ge(new tr.Version(6, 1)) ? tr.Rasterizer.DIRECTWRITE : tr.Rasterizer.GDI : $userAgent$$.getPlatformVersion().lt(new tr.Version(6, 
+  0)) ? tr.Rasterizer.GDI : $userAgent$$.getPlatformVersion().ge(new tr.Version(6, 0)) ? $userAgent$$.getBrowser() === tr.Browser.INTERNET_EXPLORER && $userAgent$$.getBrowserVersion().le(new tr.Version(8, 0)) ? tr.Rasterizer.GDI : tr.Rasterizer.DIRECTWRITE : tr.Rasterizer.UNKNOWN : $userAgent$$.getPlatform() === tr.Platform.WINDOWS_PHONE ? tr.Rasterizer.DIRECTWRITE : $userAgent$$.getPlatform() === tr.Platform.OSX || $userAgent$$.getPlatform() === tr.Platform.IOS ? tr.Rasterizer.CORETEXT : $userAgent$$.getPlatform() === 
+  tr.Platform.ANDROID || $userAgent$$.getPlatform() === tr.Platform.LINUX || $userAgent$$.getPlatform() === tr.Platform.CHROME_OS || $userAgent$$.getPlatform() === tr.Platform.FIREFOX_OS || $userAgent$$.getPlatform() === tr.Platform.BLACKBERRY ? tr.Rasterizer.FREETYPE : tr.Rasterizer.UNKNOWN;
 };
 // Input 7
 tr.UserAgent = function $tr$UserAgent$($browser$$, $browserVersion$$, $platform$$, $platformVersion$$) {
