@@ -174,5 +174,11 @@ header h2 {
 
   header h1 {
     line-height: 34px;
+    font-size: 20px;
+  }
+
+  header h2 {
+    font-size: 11px;
+    line-height: 11px;
   }
 }
