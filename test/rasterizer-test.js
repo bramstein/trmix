@@ -28,6 +28,7 @@ describe('tr.Rasterizer', function () {
 
     it('ignores non-GDI user agents', function () {
       expect(match('Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0; Trident/5.0; chromeframe/11.0.696.57)')).to.not.eql(Rasterizer.GDI);
+      expect(match('Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.1667.0 Safari/537.36')).to.not.eql(Rasterizer.GDI);
     });
   });
 
@@ -38,6 +39,7 @@ describe('tr.Rasterizer', function () {
       expect(match('Mozilla/5.0 (compatible; MSIE 10.6; Windows NT 6.1; Trident/5.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727) 3gpp-gba UNTRUSTED/1.0')).to.eql(Rasterizer.DIRECTWRITE);
       expect(match('Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko')).to.eql(Rasterizer.DIRECTWRITE);
       expect(match('Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0')).to.eql(Rasterizer.DIRECTWRITE);
+      expect(match('Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.1667.0 Safari/537.36')).to.eql(Rasterizer.DIRECTWRITE);
     });
 
     it('ignores non-DirectWrite user agents', function () {
@@ -48,6 +50,7 @@ describe('tr.Rasterizer', function () {
       expect(match('Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36')).to.eql(Rasterizer.GDI);
       expect(match('Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14')).to.eql(Rasterizer.GDI);
       expect(match('Mozilla/5.0 (Windows NT 5.1; rv:15.0) Gecko/20100101 Firefox/13.0.1')).to.eql(Rasterizer.GDI);
+      expect(match('Mozilla/5.0 (Windows NT 6.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.1667.0 Safari/537.36')).to.eql(Rasterizer.GDI);
     });
   });
 
